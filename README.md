@@ -1,14 +1,14 @@
-# pkg-template
-> Small js package I use to help me to create npm packages
+# help-watchdog
+> Small js package I use to quickly create a timer
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
-[![GitHub workflow status](https://img.shields.io/github/workflow/status/pnxdxt/package-template/CI)](https://github.com/pnxdxt/package-template)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/pkg-template)](https://bundlephobia.com/package/pkg-template)
-[![npm downloads](https://img.shields.io/npm/dt/pkg-template)](https://www.npmjs.com/package/pkg-template)
+[![GitHub workflow status](https://img.shields.io/github/workflow/status/pnxdxt/help-watchdog/CI)](https://github.com/pnxdxt/help-watchdog)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/help-watchdog)](https://bundlephobia.com/package/help-watchdog)
+[![npm downloads](https://img.shields.io/npm/dt/help-watchdog)](https://www.npmjs.com/package/help-watchdog)
 
 ## Install
 ```
-$ npm install pkg-template
+$ npm install help-watchdog
 ```
 ## Import
 
@@ -18,10 +18,7 @@ Use `import foo from 'foo'` instead of `const foo = require('foo')` to import th
 
 ```js
 // Load entire build
-import * as pkgName from 'pkg-template';
-
-// Load by method
-import {main} from 'pkg-template';
+import Watchdog from 'help-watchdog';
 ```
 If the package is used in an async context, you could use [`await import(…)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports) from CommonJS instead of `require(…)`.
 
@@ -33,13 +30,12 @@ Read more here: [sindresorhus/esm-package](https://gist.github.com/sindresorhus/
 ## Usage
 
 ```js
-
-main([1,2,3], (element) => typeof element === 'string');
-//=> false
-
-main(['1', '2', '3'], (element) => typeof element === 'string');
-//=> true
+const wd = new Watchdog(5 * 1000, hidePlayerUI);
+const eL = document.addEventListener('mousemove', wd.reset());
+wd.start();
 ```
+
+This class works like a watchdog timer, if it's not reset before timer finishes it'll trigger a triggerFcn().
 
 ## License
 

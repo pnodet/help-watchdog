@@ -1,7 +1,8 @@
 import test from 'ava';
-import main from './index.js';
+import Watchdog from './index.js';
 
-test('main()', (t) => {
-	t.is(main('hello'), true);
-	t.is(main(223), false);
+test('Watchdog', (t) => {
+	const wd = new Watchdog(1000, () => console.log('hello'));
+	wd.start();
+	t.pass();
 });
