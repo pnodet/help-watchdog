@@ -1,6 +1,6 @@
 {
 	"name": "help-watchdog",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Small js package I use to quickly create a timer",
 	"scripts": {
 		"lint": "xo",
